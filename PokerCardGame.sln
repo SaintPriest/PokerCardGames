@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.31205.134
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "PokerCardGame", "PokerCardGame.vcxproj", "{6600F97D-BC09-46E3-AA2C-908C1AE94D32}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|x64 = Debug|x64
+		Debug|x86 = Debug|x86
+		Release|x64 = Release|x64
+		Release|x86 = Release|x86
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{6600F97D-BC09-46E3-AA2C-908C1AE94D32}.Debug|x64.ActiveCfg = Debug|x64
+		{6600F97D-BC09-46E3-AA2C-908C1AE94D32}.Debug|x64.Build.0 = Debug|x64
+		{6600F97D-BC09-46E3-AA2C-908C1AE94D32}.Debug|x86.ActiveCfg = Debug|Win32
+		{6600F97D-BC09-46E3-AA2C-908C1AE94D32}.Debug|x86.Build.0 = Debug|Win32
+		{6600F97D-BC09-46E3-AA2C-908C1AE94D32}.Release|x64.ActiveCfg = Release|x64
+		{6600F97D-BC09-46E3-AA2C-908C1AE94D32}.Release|x64.Build.0 = Release|x64
+		{6600F97D-BC09-46E3-AA2C-908C1AE94D32}.Release|x86.ActiveCfg = Release|Win32
+		{6600F97D-BC09-46E3-AA2C-908C1AE94D32}.Release|x86.Build.0 = Release|Win32
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {00C79F53-33BD-4258-9483-BE47403F793A}
+	EndGlobalSection
+EndGlobal
