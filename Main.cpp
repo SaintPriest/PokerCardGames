@@ -105,6 +105,7 @@ int main()
             checkPlayerCount++;
         }
         cout << "將會有" << checkPlayerCount - 1 << "位玩家遊玩" << endl;
+        cout << "玩家人數依照txt檔內名字數量決定" << endl;
         playerCount = checkPlayerCount - 1;
         file.close();
     }
@@ -144,6 +145,7 @@ int main()
         cout << "//////////MAIN MENU//////////" << endl;
         cout << "1. 選擇遊戲" << endl;
         cout << "2. 程式設定" << endl;
+        cout << "3. 離開" << endl;
         cin >> select;
         switch (select)
         {
@@ -173,6 +175,10 @@ int main()
                     cout << "操作已完成" << endl;
                 }
                 break;
+            }
+            case 3:
+            {
+                exit(0);
             }
             default:
             {

@@ -15,6 +15,17 @@ public:
         this->playerCount = playerCount;
         this->names = names;
     }
+    bool checkHands(int index, vector <Deck> hands)
+    {
+        for (int i = 0; i < playerCount; i++)
+        {
+            if (i != index && hands[i].deck.size() > 0)
+            {
+                return false;
+            }
+        }
+        return true;
+    }
     void removePairs(Deck &deck)
     {
         for (int i = 0; i < deck.deck.size(); i++)
@@ -107,10 +118,9 @@ public:
             {
                 cout << endl << names[previous] << " 已獲勝" << endl;
             }
-            if (hands[i].deck.size() == 2 && hands[i].deck[0].suit == 4 && hands[i].deck[1].suit == 4)
+            if (checkHands(i, hands) && hands[i].deck.size() == 2 && hands[i].deck[0].suit == 4 && hands[i].deck[1].suit == 4)
             {
-                system("cls");
-                cout << names[i] << " 輸了..." << endl;
+                cout << names[i] << " 輸了..." << endl << endl;
                 return;
             }
             cout << "請按[Enter]輪到下一位玩家..." << endl;
