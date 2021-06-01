@@ -1,3 +1,5 @@
+#ifndef DECK_CPP
+#define DECK_CPP
 #include <iostream>
 #include <vector>
 #include <algorithm>
@@ -8,7 +10,7 @@ using namespace std;
 class Deck
 {
 public:
-	Deck(bool empty = false)
+	Deck(bool empty = false, bool enableJoker = false)
 	{
 		if (empty == false)
 		{
@@ -19,6 +21,11 @@ public:
 					deck.push_back(Card(i, j));
 				}
 			}
+		}
+		if (enableJoker == true)
+		{
+			deck.push_back(Card(4, 14));
+			deck.push_back(Card(4, 15));
 		}
 	}
 	vector <Card> deck;
@@ -40,6 +47,36 @@ public:
 			}
 			hands.push_back(handDeck);
 		}
+		deck.erase(deck.begin(), deck.begin() + playerCount * handCardCount);
+		return hands;
+	}
+
+	vector <Deck> dealAll(int playerCount)
+	{
+		vector <Deck> hands;
+		vector <int> handCardCount; //每個人拿的牌數量
+		for (int i = 0; i < playerCount; i++)
+		{
+			if (i < deck.size() % playerCount) //前面的人拿的牌數量多1張
+			{
+				handCardCount.push_back(deck.size() / playerCount + 1);
+			}
+			else
+			{
+				handCardCount.push_back(deck.size() / playerCount);
+			}
+		}
+		for (int i = 0; i < playerCount; i++)
+		{
+			Deck handDeck(true);
+			handDeck.deck.clear();
+			for (int j = 0; j < handCardCount[i]; j++)
+			{
+				handDeck.deck.push_back(deck[i * handCardCount[i] + j]);
+			}
+			hands.push_back(handDeck);
+		}
+		deck.erase(deck.begin(), deck.end());
 		return hands;
 	}
 
@@ -64,3 +101,4 @@ public:
 		deck.push_back(card);
 	}
 };
+#endif

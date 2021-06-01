@@ -2,6 +2,7 @@
 #include <ctime>
 #include <fstream>
 #include "NineNineGame.cpp"
+#include "TurtleJokerGame.cpp"
 
 using namespace std;
 
@@ -52,6 +53,7 @@ void SelectGame(int playerCount, vector<string> names)
         cout << "//////////Game Select//////////" << endl;
         cout << "0. 返回" << endl;
         cout << "1. 九九" << endl;
+        cout << "2. 抽鬼牌" << endl;
         cin >> select;
         switch (select)
         {
@@ -64,6 +66,13 @@ void SelectGame(int playerCount, vector<string> names)
             {
                 system("cls");
                 NineNineGame game(playerCount, names);
+                game.play();
+                return;
+            }
+            case 2:
+            {
+                system("cls");
+                TurtleJokerGame game(playerCount, names);
                 game.play();
                 return;
             }
@@ -117,12 +126,13 @@ int main()
         }
         playerCount = checkPlayerCount;
         system("cls");
-        file.close(); //不知為何用了file.peek()之後資料無法寫入至txt檔
-        file.open("names.txt", fstream::in | fstream::out | fstream::app);
+        //file.close();
+        //file.open("names.txt", fstream::in | fstream::out | fstream::app);
+        file.clear(); //檔案指標重製
         cout << "Creating Names data" << endl;
         for (int i = 0; i < playerCount; i++)
         {
-            names.push_back("P" + to_string(i + 1));
+            names.push_back("Player" + to_string(i + 1));
             string name = "Player" + to_string(i + 1);
             file << name << endl;
         }

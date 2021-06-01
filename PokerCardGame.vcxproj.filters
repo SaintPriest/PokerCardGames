@@ -27,5 +27,8 @@
     <ClCompile Include="NineNineGame.cpp">
       <Filter>來源檔案</Filter>
     </ClCompile>
+    <ClCompile Include="TurtleJokerGame.cpp">
+      <Filter>來源檔案</Filter>
+    </ClCompile>
   </ItemGroup>
 </Project>
