@@ -127,8 +127,6 @@ int main()
         }
         playerCount = checkPlayerCount;
         system("cls");
-        //file.close();
-        //file.open("names.txt", fstream::in | fstream::out | fstream::app);
         file.clear(); //檔案指標重製
         cout << "Creating Names data" << endl;
         for (int i = 0; i < playerCount; i++)

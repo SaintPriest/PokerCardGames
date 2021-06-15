@@ -55,7 +55,7 @@ public:
         {
             while (true)
             {
-                i = (i + 1) % playerCount;
+                i = (i + 1) % playerCount; //往後去找有手牌的玩家
                 if (hands[i].deck.size() != 0)
                 {
                     break;
@@ -64,7 +64,7 @@ public:
             previous = i;
             while (true)
             {
-                previous = (previous + playerCount - 1) % playerCount;
+                previous = (previous + playerCount - 1) % playerCount; //找到前一個有手牌的玩家
                 if (hands[previous].deck.size() != 0)
                 {
                     break;
@@ -118,7 +118,7 @@ public:
             {
                 cout << endl << names[previous] << " 已獲勝" << endl;
             }
-            if (checkHands(i, hands) && hands[i].deck.size() == 2 && hands[i].deck[0].suit == 4 && hands[i].deck[1].suit == 4)
+            if (checkHands(i, hands) && hands[i].deck.size() == 2)
             {
                 cout << names[i] << " 輸了..." << endl << endl;
                 return;

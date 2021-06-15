@@ -26,11 +26,11 @@ public:
         vector <Deck> hands; //二維vector
         Deck deck;
         deck.shuffle();
-        hands = deck.deal(playerCount, 5);
+        hands = deck.deal(playerCount, 5); //每位玩家5張牌
         for (int i = 0;;)
         {
             assignedNext = false;
-            i = next;
+            i = next; //next在上一回合被指定
             cout << names[i] << " 輪到你了!" << endl << endl;
             cout << "目前的Score: " << score << endl;
             while (true)
@@ -53,15 +53,15 @@ public:
             {
                 score = 0;
             }
-            else if ((card.number >= 1 && card.number <= 3) || (card.number >= 6 && card.number <= 9))
+            else if ((card.number >= 1 && card.number <= 3) || (card.number >= 6 && card.number <= 9)) //累加數字
             {
                 score += card.number;
             }
-            else if (card.number == 4)
+            else if (card.number == 4) //迴轉
             {
                 clockwise = !clockwise;
             }
-            else if (card.number == 5)
+            else if (card.number == 5) //指定
             {
                 while (true)
                 {
@@ -103,9 +103,12 @@ public:
                     }
                 }
             }
-            else if (card.number == 11)
+            else if (card.number == 11) //PASS
             {
                 cout << "PASS" << endl;
+                cout << endl << "請按[Enter]鍵繼續..." << endl;
+                cin.ignore();
+                cin.get();
             }
             else if (card.number == 12)
             {
@@ -130,17 +133,12 @@ public:
                     }
                 }
             }
-            else if (card.number == 13)
+            else if (card.number == 13) //直接99
             {
                 score = 99;
             }
-            else
-            {
-                cout << "System ERROR: Unknown card number!" << endl;
-                throw exception();
-            }
-            deck.add(card);
-            hands[i].add(deck.draw(0));
+            deck.add(card); //把玩家丟出的牌放回牌堆
+            hands[i].add(deck.draw(0)); //從牌堆中抽牌
             if (score > 99)
             {
                 system("cls");
@@ -148,15 +146,16 @@ public:
                 cout << names[i] << "輸了..." << endl << endl;
                 break;
             }
-            if (assignedNext == false)
+            system("cls");
+            if (assignedNext == false) //沒有指定下一位玩家
             {
-                if (clockwise == true)
+                if (clockwise == true) //順時針決定下一位玩家
                 {
                     next = (i + 1) % playerCount;
                 }
                 else
                 {
-                    next = (i + playerCount - 1) % playerCount;
+                    next = (i + playerCount - 1) % playerCount; //逆時針決定下一位玩家
                 }
             }
             if (score < 0)
@@ -164,6 +163,5 @@ public:
                 score = 0;
             }
         }
-        
     }
 };
